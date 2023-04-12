@@ -2,3 +2,4 @@
 
 
 in todays lab we had 3 tasks, to make the balls bounce randomly acorss the canvas on the x and y axis, switch the code from using objects instead of varibles and then make it so that there are 20+ balls bouncing around randomly on the canvas which I did. 
+https://editor.p5js.org/gkehnstrom/sketches/xzP8cCX4x
