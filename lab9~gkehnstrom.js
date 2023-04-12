@@ -1,44 +1,29 @@
-let ball1, ball2;
-
-let speedX, speedY;
+let someRandomBall = {
+  x: 45,
+  speedX: 5,
+  y: 200,
+  speedY: 5, 
+  color: "blue",
+};
 
 let listOfBalls = [];
-let listOfColors = [];
 
 function setup() {
   createCanvas(400, 400);
-
-  listOfBalls = [];
-  listOfColors = ['red', 'lightBlue', 'purple', 'green'];
-  
-  for(let ballsCreated = 0; ballsCreated < 20; ballsCreated++){
-    listOfBalls.push({
-      x: random(50, 350),
-      y: random(50, 350),
-      speedX: random(7, 10),
-      speedY: random(7, 10),
-      color: random(listOfColors)
-  });
-  }
 }
 
 function draw() {
-  background('gray');
+  background(220);
+  drawSprite(someRandomBall.x, someRandomBall.y, someRandomBall.color);
+  someRandomBall.x = someRandomBall.x + someRandomBall.speedX;
+  someRandomBall.y = someRandomBall.y + someRandomBall.speedY; 
 
-  for (let ballsDrawn = 0; ballsDrawn < listOfBalls.length; ballsDrawn++) {
-    let randomBall = listOfBalls[ballsDrawn];
-
-    drawSprite(randomBall.x, randomBall.y, randomBall.color);
-
-    if (randomBall.x > width - 20 || randomBall.x < 20) {
-      randomBall.speedX *= -1;
-    }
-    if (randomBall.y > height - 20 || randomBall.y < 20) {
-      randomBall.speedY *= -1;
-    }
-
-    randomBall.x += randomBall.speedX;
-    randomBall.y += randomBall.speedY;
+  if (someRandomBall.x > width || someRandomBall.x < 0) {
+    someRandomBall.speedX = someRandomBall.speedX * -1;
+  }
+  
+  if (someRandomBall.y > height || someRandomBall.y < 0) {  
+    someRandomBall.speedY = someRandomBall.speedY * -1;
   }
 }
 
